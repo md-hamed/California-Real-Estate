@@ -12,4 +12,8 @@ FactoryBot.define do
     latitude Faker::Address.latitude
     longitude Faker::Address.longitude
   end
+
+  trait :invalid do
+    street nil
+  end
 end
