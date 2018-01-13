@@ -11,11 +11,41 @@ RSpec.describe RealEstatesController, type: :controller do
   }
 
   describe "GET #index" do
+    before(:each) do
+      create_list(:real_estate, 8, type: :residential)
+      create_list(:real_estate, 3, type: :unknown)
+      @condo_real_estates = create_list(:real_estate, 4, type: :condo)
+    end
+
     it "returns a success response" do
-      real_estate = RealEstate.create! valid_attributes
       get :index
 
       expect(response).to be_success
+    end
+
+    it "returns real estates total count" do
+      get :index
+      response_body = JSON.parse(response.body)
+
+      expect(response_body).to have_key 'total_count'
+      expect(response_body['total_count']).to eq RealEstate.count
+    end
+
+    it "returns paginated real estates" do
+      get :index
+      response_body = JSON.parse(response.body)
+
+      expect(response_body).to have_key 'results'
+      expect(response_body['results'].count).to eq 10
+    end
+
+    context "when query params passed" do
+      it "returns real estates filtered" do
+        get :index, params: { type: :condo }
+        response_body = JSON.parse(response.body)
+
+        expect(response_body['total_count']).to eq @condo_real_estates.count
+      end
     end
   end
 
