@@ -25,9 +25,12 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# Pagination
+gem 'kaminari', '~> 1.1.1'
+
 group :development, :test do
   # debugging
-  gem 'pry', '~> 0.11.3 '
+  gem 'pry', '~> 0.11.3'
   gem 'pry-rails', '~> 0.3.6 '
 
   # testing frameworks
