@@ -29,6 +29,9 @@ group :development, :test do
   # debugging
   gem 'pry', '~> 0.11.3 '
   gem 'pry-rails', '~> 0.3.6 '
+
+  # testing frameworks
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
