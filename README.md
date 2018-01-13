@@ -1,24 +1,20 @@
-# README
+## California Real Estates
+This is a simple project to illustrate CRUD operations on California Real Estate.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Ruby version
+2.4.3
 
-Things you may want to cover:
+#### Rails version
+5.1.4
 
-* Ruby version
+#### Installation 
+Just the normal installation path, nothing mysteriuos.
+```
+bundle
+rake db:prepare
+rails s
+```
+and tada :tada:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Note
+For convenience, feel free to use the attached Postman collection ready with CRUD operations examples.
