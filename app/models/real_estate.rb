@@ -15,6 +15,8 @@ class RealEstate < ApplicationRecord
   validates :beds, :baths, numericality: { greater_than_or_equal_to: 0,
                                            only_integer: true,
                                            allow_nil: true }
+  validates :sq_ft, numericality: { greater_than_or_equal_to: 0,
+                                    only_integer: true }
 
   # aliases
   alias_attribute :type, :building_type
