@@ -1,4 +1,6 @@
 class RealEstate < ApplicationRecord
+  include Filterable
+
   # enums
   enum building_type: [:unknown, :residential, :condo, :multi_family]
 
@@ -23,4 +25,19 @@ class RealEstate < ApplicationRecord
 
   # pagination
   paginates_per 10
+
+  # scopes
+  scope :type, -> (type) { building_types.keys.include?(type.downcase) ? where(type: type.downcase) : RealEstate.none }
+  # define range scopes dynamically for price and sq_ft
+  # this defines: min_price and min_sq_ft
+  # and           max_price and max_sq_ft
+  [:price, :sq_ft].each do |range_searchable|
+    scope "min_#{range_searchable}", -> (min_value) do
+      where("#{range_searchable} >= ?", min_value)
+    end
+
+    scope "max_#{range_searchable}", -> (max_value) do
+      where("#{range_searchable} <= ?", max_value)
+    end
+  end
 end
