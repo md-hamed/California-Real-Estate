@@ -1,4 +1,6 @@
 class RealEstatesController < ApplicationController
+  include ExceptionHandler
+  
   before_action :set_real_estate, only: [:show, :update, :destroy]
 
   # GET /real_estates
