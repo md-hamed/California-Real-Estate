@@ -46,6 +46,8 @@ class RealEstatesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def real_estate_params
-      params.fetch(:real_estate, {})
+      params.require(:real_estate).permit(:street, :city, :zip, :state, 
+                                          :beds, :baths, :sq_ft, :building_type,
+                                          :sale_date, :price, :longitude, :latitude)
     end
 end
