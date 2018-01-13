@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180113141906) do
     t.integer "beds"
     t.integer "baths"
     t.integer "sq_ft"
-    t.string "building_type"
+    t.integer "building_type", default: 0
     t.datetime "sale_date"
     t.decimal "price"
     t.float "latitude"
