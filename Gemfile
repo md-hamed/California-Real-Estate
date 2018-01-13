@@ -32,6 +32,7 @@ group :development, :test do
 
   # testing frameworks
   gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails', '~> 4.8.2'
 end
 
 group :development do
