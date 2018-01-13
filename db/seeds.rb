@@ -13,6 +13,7 @@ puts " >> Seeding real estates .."
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Sacramentorealestatetransactions.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+building_types = RealEstate.building_types.keys
 
 csv.each do |row|
   r = RealEstate.new
@@ -24,13 +25,15 @@ csv.each do |row|
   r.beds = row['beds']
   r.baths = row['baths']
   r.sq_ft = row['sq__ft']
-  # building type is an enum
-  r.building_type = row['type'].try(:downcase).try(:gsub, /-/, '_')
   r.sale_date = row['sale_date']
   r.price = row['price']
   r.latitude = row['latitude']
   r.longitude = row['longitude']
-  
+
+  # building type is an enum
+  type = row['type'].try(:downcase).try(:gsub, /-/, '_')
+  r.building_type = type if building_types.include? type
+
   r.save ? print('.') : print('F')
 end
 
