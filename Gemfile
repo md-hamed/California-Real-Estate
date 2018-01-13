@@ -45,6 +45,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner', '~> 1.6.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
