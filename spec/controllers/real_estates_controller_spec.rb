@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe RealEstatesController, type: :controller do
 
   let(:valid_attributes) {
-    FactoryBot.attributes_for :real_estate
+    attributes_for :real_estate
   }
 
   let(:invalid_attributes) {
-    FactoryBot.attributes_for :real_estate, :invalid
+    attributes_for :real_estate, :invalid
   }
 
   describe "GET #index" do
