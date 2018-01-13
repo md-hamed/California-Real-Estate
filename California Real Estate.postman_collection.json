@@ -1,0 +1,207 @@
+{
+	"info": {
+		"name": "California Real Estate",
+		"_postman_id": "cf0c5a85-2b53-f4d8-66e3-58bcc17cf25e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /real_estates",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"real_estate\": \n\t{ \"street\":\"8830 ADUR RD\",\n\t  \"city\":\"ELK GROVE\",\n\t  \"zip\":\"95624\",\n\t  \"state\":\"CA\",\n\t  \"beds\": 4,\n\t  \"baths\": 2,\n\t  \"sq_ft\": 1300,\n\t  \"building_type\": \"residential\",\n\t  \"sale_date\": \"2018-1-01T04:00:00.000Z\",\n\t  \"price\": \"242000.0\",\n\t  \"latitude\": 38.43742,\n\t  \"longitude\": -121.372876\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/real_estates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /real_estates",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/real_estates?page=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /real_estates search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/real_estates?page=1&type=residential&max_price=90000&min_sq_ft=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true
+						},
+						{
+							"key": "type",
+							"value": "residential",
+							"equals": true,
+							"description": "allowed value: residential, condo, multi_family, unknown"
+						},
+						{
+							"key": "min_price",
+							"value": "20000",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "max_price",
+							"value": "90000",
+							"equals": true
+						},
+						{
+							"key": "min_sq_ft",
+							"value": "2000",
+							"equals": true
+						},
+						{
+							"key": "max_sq_ft",
+							"value": "2000",
+							"equals": true,
+							"disabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /real_estates/:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/real_estates/6808",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates",
+						"6808"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH/PUT /real_estates/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"real_estate\": \n\t{ \"beds\": 5,\n\t  \"baths\": 1\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/real_estates/5821",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates",
+						"5821"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /real_estates/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/real_estates/5820",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"real_estates",
+						"5820"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
