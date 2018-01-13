@@ -3,7 +3,7 @@ class RealEstatesController < ApplicationController
 
   # GET /real_estates
   def index
-    @real_estates = RealEstate.all
+    @real_estates = RealEstate.all.page(params[:page])
 
     render json: @real_estates
   end

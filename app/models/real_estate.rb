@@ -20,4 +20,7 @@ class RealEstate < ApplicationRecord
 
   # aliases
   alias_attribute :type, :building_type
+
+  # pagination
+  paginates_per 10
 end
