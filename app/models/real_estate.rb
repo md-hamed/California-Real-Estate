@@ -12,6 +12,9 @@ class RealEstate < ApplicationRecord
   validates :longitude, numericality: { greater_than_or_equal_to: -180,
                                         less_than_or_equal_to: 180,
                                         allow_nil: true }
+  validates :beds, :baths, numericality: { greater_than_or_equal_to: 0,
+                                           only_integer: true,
+                                           allow_nil: true }
 
   # aliases
   alias_attribute :type, :building_type
